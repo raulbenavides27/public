@@ -1,0 +1,34 @@
+ErrorDocument 404 /404/
+Options +FollowSymLinks
+RewriteEngine On
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteRule ^cap-max/(.+)*$ ./catalogo/capmax.php?capmax=$1
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteRule ^etiqueta/(.+)*$ ./catalogo/etiqueta.php?etiqueta=$1
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteRule ^uso/(.+)*$ ./catalogo/uso.php?uso=$1
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteRule ^blog/(.+)*$ ./blog/categoria.php?categoria=$1
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteRule ^posts/(.+)*$ ./blog/post.php?seo=$1
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteRule ^productos/(.+)*$ ./catalogo/producto.php?seo=$1
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteRule ^categoria/(.+)*$ ./catalogo/categoria.php?categoria=$1
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteRule ^(.+)/(.+)/(.+)*$ ./catalogo/familias/subcategoriafamilia.php?categoria=$1&subcategoria=$2&familia=$3
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteRule ^(.+)/(.+)*$ ./catalogo/subcategoria.php?categoria=$1&subcategoria=$2
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# This domain inherits the “PHP” package.
+# php -- END cPanel-generated handler, do not edit

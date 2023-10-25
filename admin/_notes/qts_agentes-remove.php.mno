@@ -1,0 +1,1 @@
+﻿<?xml version="1.0" encoding="utf-8" ?><info>	<infoitem key="UD_ConsultaChange" value="name:id;datatype:int,name:nombre;datatype:string,name:apellido;datatype:string,name:aka;datatype:string,name:correo;datatype:string,name:password;datatype:string,name:avatar;datatype:string,name:nivel;datatype:int,name:estado;datatype:string" /></info>

@@ -1,0 +1,1 @@
+﻿<?xml version="1.0" encoding="utf-8" ?><info>	<infoitem key="UD_qtsObservacionesCotizacion" value="name:id;datatype:int,name:observacion;datatype:blob,name:ip;datatype:string,name:fecha;datatype:string,name:fechaID;datatype:string,name:idCreador;datatype:string,name:idCliente;datatype:string,name:idCotizacion;datatype:string,name:estado;datatype:string" /></info>
