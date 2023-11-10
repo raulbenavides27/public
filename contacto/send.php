@@ -41,7 +41,7 @@ $metaDatos = mysqli_query($DKKfront, $query_metaDatos) or die(mysqli_error($DKKf
 $row_metaDatos = mysqli_fetch_assoc($metaDatos);
 $totalRows_metaDatos = mysqli_num_rows($metaDatos);
 
-$whatsapp = str_replace('+','',str_replace(' ','',$row_metaDatos['whatsapp']));
+//$whatsapp = str_replace('+','',str_replace(' ','',$row_metaDatos['whatsapp']));
 
 $query_ultimoContacto = "SELECT * FROM contacto ORDER BY contacto.id DESC LIMIT 1";
 $ultimoContacto = mysqli_query($DKKfront, $query_ultimoContacto) or die(mysqli_error($DKKfront));
@@ -163,17 +163,17 @@ $headers  = "MIME-Version: 1.0\r\n";
 $headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
 
 //dirección del remitente
-$headers .= "From: Prodalum <prodalum@prodalum.cl>\r\n";
+$headers .= "From: Prodalum <raulbenavides.v@gmail.com>\r\n";
 
 //dirección de respuesta, si queremos que sea distinta que la del remitente
-$headers .= "Reply-To: prodalum@prodalum.cl\r\n";
+$headers .= "Reply-To: raulbenavides.v@gmail.com\r\n";
 
 //direcciones que recibián copia
 $headers .= "Cc: \r\n";
 
 //direcciones que recibirán copia oculta
-$headers .= "Bcc: prodalum@prodalum.cl\r\n";
+$headers .= "Bcc: raulbenavides.v@gmail.com\r\n";
 
 mail($destinatario,$asunto,$cuerpo,$headers)
 ?>
-<meta http-equiv="refresh" content="0; url=../contacto" />
+ <meta http-equiv="refresh" content="0; url=../contacto" />

@@ -1,5 +1,6 @@
 <?php require_once('../Connections/DKKadmin.php');
 
+
 if (!isset($_SESSION)) {
   session_start();
 }
@@ -77,18 +78,20 @@ $theValue = function_exists("mysqli_real_escape_string") ? mysqli_real_escape_st
 }
 
 if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "cotizarForm")) {
-  $insertSQL = sprintf("INSERT INTO cotizaciones (nombre, correo, telefono, qty, productoSEO, fecha, fechaID, ip, estado, aceptaTerminos, origen) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
+  $insertSQL = sprintf("INSERT INTO cotizaciones (nombre, correo, telefono, qty, productoSEO,modelo, fecha, fechaID, ip, estado, aceptaTerminos, origen) VALUES (%s,%s,%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
                        GetSQLValueString($_POST['nombre'], "text"),
                        GetSQLValueString($_POST['correo'], "text"),
                        GetSQLValueString($_POST['telefono'], "text"),
                        GetSQLValueString($_POST['qty'], "text"),
                        GetSQLValueString($_POST['productoSEO'], "text"),
+                       GetSQLValueString($_POST['modelo'], "text"),
                        GetSQLValueString($_POST['fecha'], "text"),
                        GetSQLValueString($_POST['fechaID'], "text"),
                        GetSQLValueString($_POST['ip'], "text"),
                        GetSQLValueString($_POST['estado'], "text"),
                        GetSQLValueString($_POST['aceptaTerminos'], "text"),
                        GetSQLValueString($_POST['origen'], "text"));
+
 
   $Result1 = mysqli_query($DKKadmin, $insertSQL) or die(mysqli_error($DKKadmin));
   $insertGoTo = "cotizaciones_add.php";
@@ -174,6 +177,15 @@ $query_productosListado = "SELECT * FROM productos WHERE productos.estado = '1' 
 $productosListado = mysqli_query($DKKadmin, $query_productosListado) or die(mysqli_error($DKKadmin));
 $row_productosListado = mysqli_fetch_assoc($productosListado);
 $totalRows_productosListado = mysqli_num_rows($productosListado);
+
+// campo agregado  raul.b
+
+  
+//$query_idproducto = "SELECT id FROM productos WHERE productos.nombreSEO =  ;
+$query_modeloListado = "SELECT * FROM productosTabla join productos on productosTabla.escalaID = productos.id  WHERE productosTabla.estado = '1' ORDER BY productosTabla.id ASC";
+$modeloListado = mysqli_query($DKKadmin, $query_modeloListado) or die(mysqli_error($DKKadmin));
+$row_modeloListado = mysqli_fetch_assoc($modeloListado);
+
 ?>
 <!DOCTYPE html>
 <!--[if IE 9]>         <html class="ie9 no-focus" lang="es"> <![endif]-->
@@ -690,16 +702,33 @@ $totalRows_productosListado = mysqli_num_rows($productosListado);
                                         </div>
                                     </div>
 									<div class="col-xs-9">
+									    
                                         <div class="form-material">
                                             <select class="js-select2 form-control" id="productoSEO" name="productoSEO" style="width: 100%; height: 35px;">
                                                 <option></option>
 												<?php do { ?>
-                                                <option value="<?php echo $row_productosListado["nombreSEO"]; ?>"><?php echo $row_productosListado["nombre"]; ?></option>
+										    	<option value="<?php echo $row_productosListado["nombreSEO"]; ?>"><?php echo $row_productosListado["nombre"]; ?></option>
 												<?php } while ($row_productosListado = mysqli_fetch_assoc($productosListado)); ?>
+												
                                             </select>
                                             <label for="productoSEO">Producto</label>
                                         </div>
-                                    </div>
+                                    <br>
+                                          <!--editado raul.b -->
+                                          
+                                            <div class="form-material">
+                                            <select class="js-select2 form-control" id="modelo" name="modelo" style="width: 100%; height: 35px;">
+                                        
+                                                <option></option>
+												<?php do { ?>
+										    	<option value="<?php echo $row_modeloListado["modelo"]; ?>"><?php echo $row_modeloListado["modelo"]; ?></option>
+												<?php } while ($row_modeloListado = mysqli_fetch_assoc($modeloListado));?>
+												
+                                            </select>
+                                            <label for="modelo">Modelo</label>
+                                        </div>
+                                        <!-- fin edicion -->
+                                                </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-xs-12">Origen</label>

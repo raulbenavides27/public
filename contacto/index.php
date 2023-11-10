@@ -1,6 +1,7 @@
 <?php require_once('../Connections/DKKfront.php'); ?>
 <?php
 if (!function_exists("GetSQLValueString")) {
+  
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
 {
   if (PHP_VERSION < 6) {
@@ -79,7 +80,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "contactoForm")) {
 //Variables Globales
 $fecha = date('Y-m-d H:i:s');
 $fechaID = strtotime($fecha);
-$ip = $_SERVER["REMOTE_ADDR"];
+$ip = "192.168.0.9" ;//$_SERVER["REMOTE_ADDR"];
 $pagina = 'contacto';
 
 $query_metaDatos = "SELECT * FROM metaDatos ORDER BY metaDatos.id DESC LIMIT 1";
@@ -166,9 +167,8 @@ window.location="http://mobile.prodalum.cl/home/#!/../contacto";
 }
 </script> -->
 <!-- InstanceEndEditable -->
+
 <!-- script para captcha -->
-
-
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 </head>

@@ -58,7 +58,7 @@ $totalRows_metaDatos = mysqli_num_rows($metaDatos);
 <?php if (!(strcmp($row_metaDatos["mantencion"],"0"))) { ?>
 <!-- HOME -->
   <script type="text/javascript">
-  window.location="https://www.prodalum.cl/home/";
+  window.location="./home/";
   </script>
 <!-- //HOME -->
 <?php } ?>

@@ -1,4 +1,6 @@
 <?php
+
+
 # FileName="Connection_php_mysql.htm"
 # Type="MYSQL"
 # HTTP="true"

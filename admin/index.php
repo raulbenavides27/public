@@ -184,7 +184,7 @@ $totalRows_visitas9dias = mysqli_num_rows($visitas9dias);
 
 $query_visitas10dias = "SELECT * FROM visitas WHERE visitas.fechaID >= '$fecha11dias' AND visitas.fechaID <= '$fecha10dias' ORDER BY visitas.id DESC";
 $visitas10dias = mysqli_query($DKKadmin, $query_visitas10dias) or die(mysqli_error($DKKadmin));
-$row_visitas10dias = mysqli_fetch_assoc($visitas103dias);
+$row_visitas10dias = mysqli_fetch_assoc($visitas10dias);
 $totalRows_visitas10dias = mysqli_num_rows($visitas10dias);
 
 $query_visitas11dias = "SELECT * FROM visitas WHERE visitas.fechaID >= '$fecha12dias' AND visitas.fechaID <= '$fecha11dias' ORDER BY visitas.id DESC";
@@ -259,7 +259,7 @@ $totalRows_cotizaciones9dias = mysqli_num_rows($cotizaciones9dias);
 
 $query_cotizaciones10dias = "SELECT * FROM cotizaciones WHERE cotizaciones.fechaID >= '$fecha11dias' AND cotizaciones.fechaID <= '$fecha10dias' ORDER BY cotizaciones.id DESC";
 $cotizaciones10dias = mysqli_query($DKKadmin, $query_cotizaciones10dias) or die(mysqli_error($DKKadmin));
-$row_cotizaciones10dias = mysqli_fetch_assoc($cotizaciones103dias);
+$row_cotizaciones10dias = mysqli_fetch_assoc($cotizaciones10dias);
 $totalRows_cotizaciones10dias = mysqli_num_rows($cotizaciones10dias);
 
 $query_cotizaciones11dias = "SELECT * FROM cotizaciones WHERE cotizaciones.fechaID >= '$fecha12dias' AND cotizaciones.fechaID <= '$fecha11dias' ORDER BY cotizaciones.id DESC";
@@ -334,7 +334,7 @@ $totalRows_whatsapp9dias = mysqli_num_rows($whatsapp9dias);
 
 $query_whatsapp10dias = "SELECT * FROM visitas WHERE visitas.pagina = 'whatsapp' AND visitas.fechaID >= '$fecha11dias' AND visitas.fechaID <= '$fecha10dias' ORDER BY visitas.id DESC";
 $whatsapp10dias = mysqli_query($DKKadmin, $query_whatsapp10dias) or die(mysqli_error($DKKadmin));
-$row_whatsapp10dias = mysqli_fetch_assoc($whatsapp103dias);
+$row_whatsapp10dias = mysqli_fetch_assoc($whatsapp10dias);
 $totalRows_whatsapp10dias = mysqli_num_rows($whatsapp10dias);
 
 $query_whatsapp11dias = "SELECT * FROM visitas WHERE visitas.pagina = 'whatsapp' AND visitas.fechaID >= '$fecha12dias' AND visitas.fechaID <= '$fecha11dias' ORDER BY visitas.id DESC";

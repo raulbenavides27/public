@@ -1,12 +1,13 @@
 <?php require_once('../Connections/DKKfront.php'); ?>
 <?php
 if (!function_exists("GetSQLValueString")) {
+
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
 {
   if (PHP_VERSION < 6) {
     $theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
   }
-
+  
   switch ($theType) {
     case "text":
       $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
@@ -26,8 +27,11 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
       break;
   }
   return $theValue;
+  
 }
 }
+
+
 
 if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "buscadorHeader")) {
   $insertSQL = sprintf("INSERT INTO buscador (search, estado, fecha, fechaID, ip) VALUES (%s, %s, %s, %s, %s)",
@@ -41,13 +45,18 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "buscadorHeader")) {
 
   $insertGoTo = "../search.php";
   header(sprintf("Location: %s", $insertGoTo));
+ 
 }
 
 //Variables Globales
 $fecha = date('Y-m-d H:i:s');
 $fechaID = strtotime($fecha);
-$ip = $_SERVER["REMOTE_ADDR"];
+$ip =$_SERVER["REMOTE_ADDR"];
 $pagina = "home";
+echo "fecha:" . $fecha; 
+echo "fecha id:" . $fechaID;
+echo "ip:" . $ip;
+echo "pagina:" . $pagina;
 
 $query_metaDatos = "SELECT * FROM metaDatos ORDER BY metaDatos.id DESC";
 $metaDatos = mysqli_query($DKKfront, $query_metaDatos);
